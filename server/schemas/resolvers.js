@@ -1,4 +1,3 @@
-const { NoUnusedFragmentsRule } = require('graphql');
 const { User, Password } = require('../models');
 const { signToken } = require('../utils/auth')
 const {AuthenticationError} = require('apollo-server-express')
