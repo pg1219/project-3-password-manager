@@ -1,43 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Tech Matchup application"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Password Manager application" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <title>Password Manager App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root">
+    <!-- Password Manager UI elements -->
+    <div>
+      <!-- User Authentication Forms -->
+      <form id="signup-form">
+        <h2>Sign Up</h2>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit">Sign Up</button>
+      </form>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Tech Matchup App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+      <form id="login-form">
+        <h2>Login</h2>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit">Login</button>
+      </form>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      <!-- Password List -->
+      <div id="password-list">
+        <h2>Passwords</h2>
+        <ul></ul>
+      </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+      <!-- Add New Password Form -->
+      <form id="add-password-form">
+        <h2>Add New Password</h2>
+        <label for="website">Website Name:</label>
+        <input type="text" id="website" name="website" required />
+        <label for="username">Username/Email:</label>
+        <input type="text" id="username" name="username" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit">Add Password</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code for the Password Manager
+    document.addEventListener('DOMContentLoaded', () => {
+      // Function to display the saved passwords
+      const displayPasswords = () => {
+        const passwordList = document.querySelector('#password-list ul');
+        passwordList.innerHTML = '';
+
+        // Assume you have a list of saved passwords fetched from local storage
+        const savedPasswords = JSON.parse(localStorage.getItem('savedPasswords')) || [];
+
+        // Display saved passwords in the list
+        savedPasswords.forEach((password, index) => {
+          const li = document.createElement('li');
+          li.textContent = `${password.website} (${password.username}): ********`;
+          const editBtn = document.createElement('button');
+          editBtn.textContent = 'Edit';
+          const deleteBtn = document.createElement('button');
+          deleteBtn.textContent = 'Delete';
+
+          // Add event listener for delete button
+          deleteBtn.addEventListener('click', () => {
+            // Call the function to delete the password at the given index
+            deletePassword(index);
+          });
+
+          li.appendChild(editBtn);
+          li.appendChild(deleteBtn);
+          passwordList.appendChild(li);
+        });
+      };
+
+      // Function to delete a password at the given index
+      const deletePassword = (index) => {
+        const savedPasswords = JSON.parse(localStorage.getItem('savedPasswords')) || [];
+        // Remove the password at the specified index from the array
+        savedPasswords.splice(index, 1);
+        // Save the updated list of passwords to local storage
+        localStorage.setItem('savedPasswords', JSON.stringify(savedPasswords));
+        // Refresh the displayed passwords
+        displayPasswords();
+      };
+
+      // User Authentication Forms
+      const signupForm = document.getElementById('signup-form');
+      const loginForm = document.getElementById('login-form');
+
+      signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        // Handle signup form submission (not implemented for local storage version)
+        console.log('Signup form submitted:', email, password);
+        e.target.reset();
+      });
+
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        // Handle login form submission (not implemented for local storage version)
+        console.log('Login form submitted:', email, password);
+        e.target.reset();
+      });
+
+      // Add New Password Form
+      const addPasswordForm = document.getElementById('add-password-form');
+      addPasswordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const website = e.target.website.value;
+        const username = e.target.username.value;
+        const password = e.target.password.value;
+
+        // Assume you have a list of saved passwords fetched from local storage
+        const savedPasswords = JSON.parse(localStorage.getItem('savedPasswords')) || [];
+
+        // Add the new password to the list
+        savedPasswords.push({ website, username, password });
+
+        // Save the updated list of passwords to local storage
+        localStorage.setItem('savedPasswords', JSON.stringify(savedPasswords));
+
+        // Display the updated list of saved passwords
+        displayPasswords();
+
+        e.target.reset();
+      });
+
+      // Initial display of saved passwords
+      displayPasswords();
+    });
+  </script>
+</body>
 </html>
