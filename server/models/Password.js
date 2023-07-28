@@ -15,6 +15,5 @@ const passwordSchema = new Schema({
     },
 });
 
-const Password = model("Password", passwordSchema);
 
-module.exports = Password;
+module.exports = passwordSchema;
