@@ -1,0 +1,17 @@
+[
+    {
+      "loginTo": "JavaScript",
+      "saveUsername": "user123",
+      "savedPassword": "test123"
+    },
+    {
+      "loginTo": "HTML",
+      "saveUsername": "user456",
+      "savedPassword": "test456"
+    },
+    {
+      "loginTo": "CSS",
+      "saveUsername": "user789",
+      "savedPassword": "test789"
+    }
+   ]

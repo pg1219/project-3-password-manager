@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const { Password } = require(".");
 
 const passwordSchema = new Schema({
     loginTo: {
@@ -17,3 +18,4 @@ const passwordSchema = new Schema({
 
 
 module.exports = passwordSchema;
+
