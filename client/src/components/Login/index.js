@@ -79,4 +79,6 @@ const LoginForm = () => {
         </div>
         </main>
     )
-}
+};
+
+export default LoginForm;
