@@ -1,10 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Login from '../Login'
-import Signup from '../Signup'
+import React from "react";
+import { Link } from "react-router-dom";
+import Login from "../Login";
+import Signup from "../Signup";
 
-
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const Nav = () => {
   const logout = (event) => {
@@ -12,19 +11,19 @@ const Nav = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
+    <nav className="bg-info text-dark mb-4 py-3 display-flex align-center">
       <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
         <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: '3rem' }}>
+          <h1 className="m-0" style={{ fontSize: "3rem" }}>
             Password Manager
           </h1>
         </Link>
-        <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-            Never forget your passwords again
+        <p className="m-0" style={{ fontSize: "1.75rem", fontWeight: "700" }}>
+          Never forget your passwords again
         </p>
         <div>
           {Auth.loggedIn() ? (
-            <>
+            <div>
               <Link className="btn btn-lg btn-primary m-2" to="/">
                 View My Passwords
               </Link>
@@ -34,7 +33,7 @@ const Nav = () => {
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
-            </>
+            </div>
           ) : (
             <>
               <Link className="btn btn-lg btn-primary m-2" to="/login">
@@ -47,7 +46,7 @@ const Nav = () => {
           )}
         </div>
       </div>
-    </header>
+    </nav>
   );
 };
 
