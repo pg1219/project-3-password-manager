@@ -352,13 +352,24 @@ html,
 body {
   min-height: 100%;
 }
+.inputs-container {
+  width: 100%; /* Make the container take up the full width */
+  display: flex;
+  flex-direction: column; /* Align inputs vertically */
+  gap: 1rem; /* Add spacing between inputs */
+}
+
+.custom-h4 {
+  margin-top: 1rem; /* Adjust the value to move the element higher */
+}
+
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 18px;
-  color: #f0dfdf; /* Changed the text color to a dark shade for better readability */
+  color: #c6deed; /* Changed the text color to a dark shade for better readability */
   background-color: #f0f0f0; /* Changed the background color to a light gray */
 }
 
@@ -385,7 +396,8 @@ h3 {
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.5rem; text-align: center;
+
 }
 
 h5 {
@@ -930,7 +942,7 @@ a:hover {
 }
 
 .bg-info {
-  background-color: #a6e6eb !important;
+  background-color: #b6f1f6dd !important;
 }
 
 .bg-danger {
@@ -981,17 +993,18 @@ a:hover {
 .btn {
   text-align: center;
   display: inline-block;
-  padding: 0.5rem 1.2rem;
+  padding: 0.5rem 3rem; /* Wider padding horizontally */
   margin: 0;
   text-decoration: none;
-  font-size: 1.2rem; /* Updated font size to 1.2rem */
-  border-radius: 0.5rem; /* Updated border radius to 0.5rem */
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
   border: 1px solid transparent;
   outline: none;
   color: #1a1a1a;
-  background-color: #aeaeae; /* Updated background color to #aeaeae */
+  background-color: #aeaeae;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
+
 
 .btn:hover {
   background-color: #cecece;
@@ -1012,10 +1025,28 @@ a:hover {
 }
 
 .btn.btn-block {
-  width: 100%;
+  width: auto; /* Let the content determine the width */
   display: block;
   text-align: center;
+  padding: 0.5rem 3rem; /* Adjust padding for better fit */
+  margin: 0;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  outline: none;
+  color: #1a1a1a;
+  background-color: #aeaeae;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
+/* Your existing styles */
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .btn.btn-primary {
   background-color: #2d3e50;
