@@ -65,7 +65,7 @@ const LoginForm = () => {
                       style={{ cursor: 'pointer' }}
                       type="submit"
                     >
-                      Sign Up!
+                      Login!
                     </button>
                   </form>
                 )}
