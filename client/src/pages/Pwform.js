@@ -29,57 +29,63 @@ const CreatePass = ({ _id }) => {
     };
 
     return (
-        <div>
-          
-          {Auth.loggedIn() ? (
-            <>
-            <h4>Add a website, username and password below.</h4>
+      <div>
+        {Auth.loggedIn() ? (
+          <>
+           <h4 className="text-center custom-h4">Add a website, username and password below.</h4>
+
             <form
               className="flex-row justify-center justify-space-between-md align-center"
               onSubmit={handleFormSubmit}
             >
-              <div className="col-12 col-lg-9">
-                <input
-                  placeholder="Add a website..."
-                  value={createPass.loginTo}
-                  className="form-input w-100"
-                  onChange={(event) => setCreatePass(event.target.value)}
-                />
-                <input
-                  placeholder="Add a username..."
-                  value={createPass.savedUsername}
-                  className="form-input w-100"
-                  onChange={(event) => setCreatePass(event.target.value)}
-                />
-                <input
-                  placeholder="Add a password..."
-                  value={createPass.savedPassword}
-                  className="form-input w-100"
-                  onChange={(event) => setCreatePass(event.target.value)}
-                />
+             <div className="col-12 col-lg-10"> {/* Adjusted column size */}
+  <div className="inputs-container"> {/* New container for inputs */}
+    <input
+      placeholder="Add a website..."
+      value={createPass.loginTo}
+      className="form-input w-100"
+      onChange={(event) => setCreatePass(event.target.value)}
+    />
+    <input
+      placeholder="Add a username..."
+      value={createPass.savedUsername}
+      className="form-input w-100"
+      onChange={(event) => setCreatePass(event.target.value)}
+    />
+    <input
+      placeholder="Add a password..."
+      value={createPass.savedPassword}
+      className="form-input w-100"
+      onChange={(event) => setCreatePass(event.target.value)}
+    />
+  </div>
+</div>
+
+  
+              <div className="col-12 col-lg-9 flex-center"> {/* Use the same class for consistency */}
+                <div className="button-container"> {/* New container for the button */}
+                  <button className="btn btn-info btn-block py-3" type="submit">
+                    Add Credentials
+                  </button>
+                </div>
               </div>
-    
-              <div className="col-12 col-lg-3">
-                <button className="btn btn-info btn-block py-3" type="submit">
-                  Add Credentials
-                </button>
-              </div>
+              
               {error && (
                 <div className="col-12 my-3 bg-danger text-white p-3">
                   {error.message}
                 </div>
               )}
             </form>
-            </>
-          ) : (
-            <p>
-              Please login to add a password{' '}
-              <Link to="/login">login</Link> or <Link to="/signup">signup</Link>
-            </p>
-          )} 
-        </div>
-      );
-    };
-    
-    export default CreatePass;
+          </>
+        ) : (
+          <p>
+            Please login to add a password{' '}
+            <Link to="/login">login</Link> or <Link to="/signup">signup</Link>
+          </p>
+        )}
+      </div>
+    );
+  };
+  
+  export default CreatePass;
     
