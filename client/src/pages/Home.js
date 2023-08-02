@@ -5,6 +5,7 @@ import { QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
+
 const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || {};
