@@ -51,7 +51,7 @@ return (
                 <input
                   className="form-input"
                   placeholder="Your username"
-                  name="name"
+                  name="username"
                   type="text"
                   value={userFormData.username}
                   onChange={handleInputChange}
