@@ -1249,6 +1249,8 @@ label form [type='radio'] {
 
 .align-center {
   align-items: center;
+  font-weight: 600;
+
 }
 
 .align-content-start {
