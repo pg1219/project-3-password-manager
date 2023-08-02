@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { useMutation } from "@apollo/client";
 import { ADD_PASSWORD } from "../utils/mutations";
+import { Link } from 'react-router-dom';
 
 import Auth from "../utils/auth";
 
-const PwForm = ({profileId}) => {
-    const [pw, setPw] = useState('');
-    const [addPw, {error}] = useMutation(ADD_PASSWORD);
+const CreatePass = ({ _id }) => {
+    const [createPass, setCreatePass] = useState({});
+    const [addPass, { loading, error }] = useMutation(ADD_PASSWORD);
+
     const handleFormSubmit = async (event) => {
         event.preventDefault()
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+          return false;
+        }
 
         try{
-            const data = await addPw({
-                variables: {_id: _id,  }
+            const { data } = await addPass({
+                variables: {_id, createPass }
             })
-            setPw('')
+            setCreatePass('')
+            console.log(data)
         } catch (err) {
             console.error(err);
         }
@@ -22,9 +30,10 @@ const PwForm = ({profileId}) => {
 
     return (
         <div>
-          <h4>Add a website, username and password below.</h4>
-    
+          
           {Auth.loggedIn() ? (
+            <>
+            <h4>Add a website, username and password below.</h4>
             <form
               className="flex-row justify-center justify-space-between-md align-center"
               onSubmit={handleFormSubmit}
@@ -32,27 +41,27 @@ const PwForm = ({profileId}) => {
               <div className="col-12 col-lg-9">
                 <input
                   placeholder="Add a website..."
-                  value={website}
+                  value={createPass.loginTo}
                   className="form-input w-100"
-                  onChange={(event) => setPw(event.target.value)}
+                  onChange={(event) => setCreatePass(event.target.value)}
                 />
                 <input
                   placeholder="Add a username..."
-                  value={username}
+                  value={createPass.savedUsername}
                   className="form-input w-100"
-                  onChange={(event) => setPw(event.target.value)}
+                  onChange={(event) => setCreatePass(event.target.value)}
                 />
                 <input
                   placeholder="Add a password..."
-                  value={password}
+                  value={createPass.savedPassword}
                   className="form-input w-100"
-                  onChange={(event) => setPw(event.target.value)}
+                  onChange={(event) => setCreatePass(event.target.value)}
                 />
               </div>
     
               <div className="col-12 col-lg-3">
                 <button className="btn btn-info btn-block py-3" type="submit">
-                  Add password
+                  Add Credentials
                 </button>
               </div>
               {error && (
@@ -61,15 +70,16 @@ const PwForm = ({profileId}) => {
                 </div>
               )}
             </form>
+            </>
           ) : (
             <p>
-              You need to be logged in to add a password. Please{' '}
-              <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+              Please login to add a password{' '}
+              <Link to="/login">login</Link> or <Link to="/signup">signup</Link>
             </p>
-          )}
+          )} 
         </div>
       );
     };
     
-    export default PwForm;
+    export default CreatePass;
     
