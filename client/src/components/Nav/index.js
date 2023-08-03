@@ -11,38 +11,34 @@ const Nav = () => {
     Auth.logout();
   };
   return (
-    <nav className="bg-info text-dark mb-4 py-3 display-flex align-center">
-      <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
-        <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: "3rem" }}>
-            Password Manager
-          </h1>
+    <nav className="custom-nav">
+      <div className="custom-nav-content">
+        <Link className="custom-nav-link" to="/">
+          <h1 className="custom-nav-logo">Password Manager</h1>
         </Link>
-        <p className="m-0" style={{ fontSize: "1.75rem", fontWeight: "700" }}>
-          Never forget your passwords again
-        </p>
-        <div>
+        <p className="custom-nav-description">Never forget your passwords again</p>
+        <div className="custom-buttons">
           {Auth.loggedIn() ? (
-            <div>
-              <Link className="btn btn-lg btn-primary m-2" to="/">
+            <div className="custom-logged-in-buttons">
+              <Link className="custom-button" to="/">
                 View My Passwords
               </Link>
-              <Link className="btn btn-lg btn-primary m-2" to="/create">
+              <Link className="custom-button" to="/create">
                 Save a new password
               </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button className="custom-button" onClick={logout}>
                 Logout
               </button>
             </div>
           ) : (
-            <>
-              <Link className="btn btn-lg btn-primary m-2" to="/login">
+            <div className="custom-logged-out-buttons">
+              <Link className="custom-button" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="custom-button" to="/signup">
                 Signup
               </Link>
-            </>
+            </div>
           )}
         </div>
       </div>
