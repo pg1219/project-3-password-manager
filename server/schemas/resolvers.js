@@ -45,11 +45,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in to add a password");
     },
-    removePassword: async (parent, { passwordId }, context) => {
+    removePassword: async (parent, { loginTo }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedPassword: passwordId } },
+          { $pull: { savedPasswords: {loginTo} } },
           { new: true }
         );
         return updatedUser;
