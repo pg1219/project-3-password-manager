@@ -6,14 +6,26 @@ import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
 const CreatePass = () => {
+
   const [loginTo, setLoginTo] = useState("");
   const [savedUsername, setSavedUsername] = useState("");
   const [savedPassword, setSavedPassword] = useState("");
 
+ 
+    
+    const [addPass, { data, error }] = useMutation(ADD_PASSWORD);
+
+
   const [addPass, { loading, error }] = useMutation(ADD_PASSWORD);
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+        console.log(loginTo + savedUsername + savedPassword);
+
+       
+ 
 
     try {
       const { data } = await addPass({
