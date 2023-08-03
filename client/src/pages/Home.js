@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { REMOVE_PASSWORD } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
+import { Link } from "react-router-dom";
+
 
 import Auth from "../utils/auth";
 
@@ -43,7 +45,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
   return (
     <div>
       <div>
-        <h1> Your Saved Passwords!</h1>
+        <h1> Your Credentials!</h1>
       </div>
       <div>
         <h2 className="pt-5">
@@ -51,7 +53,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
             ? `Viewing ${userData.savedPassword.length} saved ${
                 userData.savedPassword.length === 1 ? "password" : "passwords"
               }:`
-            : "You have no saved passwords yet!"}
+            : "You have not saved any credentials yet!"}
         </h2>
 
         <div>
@@ -62,6 +64,9 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                   <h3>This is your login information for {password.loginTo}</h3>
                   <h4>Your Username: {password.savedUsername}</h4>
                   <h4>Your Password: {password.savedPassword}</h4>
+                  <Link className="custom-button" to="/update">
+                Update Credentials
+              </Link>
                   <button
                     className="btn-block btn-danger"
                     onClick={() => handleDeletePassword(password.loginTo)}

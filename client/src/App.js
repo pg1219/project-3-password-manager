@@ -12,6 +12,8 @@ import Nav from "./components/Nav/"
 import Signup from "./components/Signup"
 import Login from "./components/Login";
 import Pwform from "./pages/Pwform";
+import UpdatePass from './pages/UpdatePass';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -59,6 +61,10 @@ function App() {
             <Route 
               path="/create"
               element={<Pwform />}
+            />
+            <Route 
+              path="/update"
+              element={<UpdatePass />}
             />
           </Routes>
         </div>

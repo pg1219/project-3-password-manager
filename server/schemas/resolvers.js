@@ -58,6 +58,20 @@ const resolvers = {
         "You must be logged in to delete passwords"
       );
     },
+    updatePassword: async (parent, { loginTo, savedUsername, savedPassword }, context) => {
+      console.log(context.user)
+      console.log(savedPassword, savedUsername, loginTo)
+      if (context.user) {
+        const updatePw = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { savedPasswords: {savedPassword, savedUsername, loginTo}} },
+          { new: true }
+        );
+        console.log("updatedPass", updatePw)
+        return updatePw;
+      }
+      throw new AuthenticationError("You must be logged in to add a password");
+    },
   },
 };
 module.exports = resolvers;

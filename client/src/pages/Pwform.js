@@ -31,6 +31,7 @@ const CreatePass = () => {
       setSavedPassword("");
       setSavedUsername("");
       setLoginTo("");
+      window.location.assign("/")
       console.log(data);
     } catch (err) {
       console.error(err);
