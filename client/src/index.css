@@ -1092,12 +1092,13 @@ a:hover {
   padding: 0.8rem 1.4rem;
 }
 
+/* Adjusted CSS for the button */
 .btn.btn-block {
   width: 100%; /* Let the content determine the width */
   display: block;
   text-align: center;
-  padding: 0.5rem 3rem; /* Adjust padding for better fit */
-  margin: 0;
+  padding: 0.5rem 3rem;
+  margin: 1rem auto 0; /* Add margin to separate the button from the inputs and center it */
   text-decoration: none;
   font-size: 1.2rem;
   border-radius: 0.5rem;
@@ -1106,9 +1107,14 @@ a:hover {
   color: #1a1a1a;
   background-color: #aeaeae;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add the box shadow */
+
 }
-/* Your existing styles */
+
+
 
 .flex-center {
   display: flex;

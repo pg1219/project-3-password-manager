@@ -31,14 +31,16 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPassword: async (parent, { login, username, password }, context) => {
+    addPassword: async (parent, { loginTo, savedUsername, savedPassword }, context) => {
       console.log(context.user)
+      console.log(savedPassword, savedUsername, loginTo)
       if (context.user) {
         const addedPw = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedPassword: password, savedUsername: username, loginTo: login } },
+          { $addToSet: { savedPasswords: {savedPassword, savedUsername, loginTo}} },
           { new: true }
         );
+        console.log("addedPass", addedPw)
         return addedPw;
       }
       throw new AuthenticationError("You must be logged in to add a password");
