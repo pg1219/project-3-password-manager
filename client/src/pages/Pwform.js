@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PASSWORD } from "../utils/mutations";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import Auth from "../utils/auth";
 
 const CreatePass = () => {
-    const [loginTo, setLoginTo] = useState("");
-    const [savedUsername, setSavedUsername] = useState("");
-    const [savedPassword, setSavedPassword] = useState("");
+
+  const [loginTo, setLoginTo] = useState("");
+  const [savedUsername, setSavedUsername] = useState("");
+  const [savedPassword, setSavedPassword] = useState("");
+
+ 
     
     const [addPass, { data, error }] = useMutation(ADD_PASSWORD);
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault()
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
         console.log(loginTo + savedUsername + savedPassword);
+
 
         try{
             const { data } = await addPass({
@@ -82,7 +87,12 @@ const CreatePass = () => {
           </p>
         )}
       </div>
-    );
+    );    
+ 
+
   };
+
   
+};
+
 export default CreatePass;
