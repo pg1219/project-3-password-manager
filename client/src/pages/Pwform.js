@@ -81,5 +81,6 @@ const CreatePass = () => {
       </div>
     );
   };
+ 
   
 export default CreatePass;
