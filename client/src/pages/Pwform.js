@@ -14,11 +14,6 @@ const CreatePass = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault()
-        // const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-        // if (!token) {
-        //   return false;
-        // }
 
         console.log(loginTo + savedUsername + savedPassword);
 
@@ -40,13 +35,12 @@ const CreatePass = () => {
       <div>
         {Auth.loggedIn() ? (
           <>
-           <h4 className="text-center custom-h4">Add a website, username and password below.</h4>
+            <h4 className="text-center custom-h4">Add a website, username and password below.</h4>
 
             <form
               className="flex-row justify-center justify-space-between-md align-center"
               onSubmit={handleFormSubmit}
             >
-
               <div className="col-12 col-lg-9">
                 <input
                   placeholder="Add a website..."
@@ -72,7 +66,6 @@ const CreatePass = () => {
                 <button className="btn btn-info btn-block py-3" type="submit">
                   Add Credentials
                 </button>
-
               </div>
               
               {error && (
@@ -92,5 +85,4 @@ const CreatePass = () => {
     );
   };
   
-  export default CreatePass;
-    
+export default CreatePass;
