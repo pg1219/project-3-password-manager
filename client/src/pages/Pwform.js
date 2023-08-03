@@ -16,9 +16,6 @@ const CreatePass = () => {
     const [addPass, { data, error }] = useMutation(ADD_PASSWORD);
 
 
-  const [addPass, { loading, error }] = useMutation(ADD_PASSWORD);
-
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
