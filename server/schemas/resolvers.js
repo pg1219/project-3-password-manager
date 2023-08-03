@@ -45,11 +45,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in to add a password");
     },
-    removePassword: async (parent, { passwordId }, context) => {
+    removePassword: async (parent, { loginTo }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedPassword: passwordId } },
+          { $pull: { savedPasswords: {loginTo} } },
           { new: true }
         );
         return updatedUser;
@@ -57,6 +57,20 @@ const resolvers = {
       throw new AuthenticationError(
         "You must be logged in to delete passwords"
       );
+    },
+    updatePassword: async (parent, { loginTo, savedUsername, savedPassword }, context) => {
+      console.log(context.user)
+      console.log(savedPassword, savedUsername, loginTo)
+      if (context.user) {
+        const updatePw = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { savedPasswords: {savedPassword, savedUsername, loginTo}} },
+          { new: true }
+        );
+        console.log("updatedPass", updatePw)
+        return updatePw;
+      }
+      throw new AuthenticationError("You must be logged in to add a password");
     },
   },
 };

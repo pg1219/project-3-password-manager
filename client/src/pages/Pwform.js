@@ -90,9 +90,7 @@ const CreatePass = () => {
     );    
  
 
-  };
 
-  
 };
 
 export default CreatePass;

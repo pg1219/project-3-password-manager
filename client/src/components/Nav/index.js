@@ -24,7 +24,9 @@ const Nav = () => {
                 View My Credentials
               </Link>
               <Link className="custom-button" to="/create">
+
                 Save New Credentials
+
               </Link>
               <button className="custom-button" onClick={logout}>
                 Logout

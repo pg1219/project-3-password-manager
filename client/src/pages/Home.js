@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { REMOVE_PASSWORD } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
+import { Link } from "react-router-dom";
+
 
 import Auth from "../utils/auth";
 
@@ -20,7 +22,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
     },
   });
 
-  const handleDeletePassword = async (_id) => {
+  const handleDeletePassword = async (loginTo) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -29,7 +31,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
 
     try {
       const { data } = await removePassword({
-        variables: { _id: _id },
+        variables: { loginTo },
       });
       console.log("data ", data);
     } catch (err) {
@@ -42,8 +44,12 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
   }
   return (
     <div>
+      {Auth.loggedIn() ? (
+        <>
       <div>
+
         <h1> Your Saved Credentials</h1>
+
       </div>
       <div>
         <h2 className="pt-5">
@@ -51,7 +57,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
             ? `Viewing ${userData.savedPassword.length} saved ${
                 userData.savedPassword.length === 1 ? "password" : "passwords"
               }:`
-            : "You have no saved passwords yet!"}
+            : "You have not saved any credentials yet!"}
         </h2>
 
         <div>
@@ -62,9 +68,12 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                   <h3>This is your login information for {password.loginTo}</h3>
                   <h4>Your Username: {password.savedUsername}</h4>
                   <h4>Your Password: {password.savedPassword}</h4>
+                  <Link className="custom-button" to="/update">
+                Update Credentials
+              </Link>
                   <button
                     className="btn-block btn-danger"
-                    onClick={() => handleDeletePassword(password._id)}
+                    onClick={() => handleDeletePassword(password.loginTo)}
                   >
                     Delete Credentials for {password.loginTo} !
                   </button>
@@ -74,6 +83,13 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
           })}
         </div>
       </div>
+      </>
+       ) : (
+        <p>
+          Please login to view your credentials <Link to="/login">login</Link> or{" "}
+          <Link to="/signup">signup</Link>
+        </p>
+      )}
     </div>
   );
 };

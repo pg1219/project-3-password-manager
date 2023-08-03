@@ -40,8 +40,8 @@ mutation Login($email: String!, $password: String!) {
   }`;
 
   export const REMOVE_PASSWORD = gql`
-  mutation RemovePassword($passwordId: String!) {
-    removePassword(passwordId: $passwordId) {
+  mutation RemovePassword($loginTo: String!) {
+    removePassword(loginTo: $loginTo) {
       _id
       email
       username
@@ -53,3 +53,18 @@ mutation Login($email: String!, $password: String!) {
       }
     }
   }`;
+
+  export const UPDATE_PASSWORD = gql`
+  mutation UpdatePassword($loginTo: String!, $savedUsername: String!, $savedPassword: String!) {
+    updatePassword(loginTo: $loginTo, savedUsername: $savedUsername, savedPassword: $savedPassword) {
+      _id
+      email
+      username
+      savedPasswords {
+        _id
+        loginTo
+        savedUsername
+        savedPassword
+      }
+    }
+  }`
