@@ -5,23 +5,28 @@ import { Link } from 'react-router-dom';
 
 import Auth from "../utils/auth";
 
-const CreatePass = ({ _id }) => {
-    const [createPass, setCreatePass] = useState({});
+const CreatePass = () => {
+    const [loginTo, setLoginTo] = useState("");
+    const [savedUsername, setSavedUsername] = useState("");
+    const [savedPassword, setSavedPassword] = useState("");
+    
     const [addPass, { loading, error }] = useMutation(ADD_PASSWORD);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault()
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        // const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-        if (!token) {
-          return false;
-        }
+        // if (!token) {
+        //   return false;
+        // }
 
         try{
             const { data } = await addPass({
-                variables: {_id, createPass }
+              variables:  { loginTo, savedUsername, savedPassword }
             })
-            setCreatePass('')
+            setSavedPassword("")
+            setSavedUsername("")
+            setLoginTo("")
             console.log(data)
         } catch (err) {
             console.error(err);
@@ -38,36 +43,33 @@ const CreatePass = ({ _id }) => {
               className="flex-row justify-center justify-space-between-md align-center"
               onSubmit={handleFormSubmit}
             >
-             <div className="col-12 col-lg-10"> {/* Adjusted column size */}
-  <div className="inputs-container"> {/* New container for inputs */}
-    <input
-      placeholder="Add a website..."
-      value={createPass.loginTo}
-      className="form-input w-100"
-      onChange={(event) => setCreatePass(event.target.value)}
-    />
-    <input
-      placeholder="Add a username..."
-      value={createPass.savedUsername}
-      className="form-input w-100"
-      onChange={(event) => setCreatePass(event.target.value)}
-    />
-    <input
-      placeholder="Add a password..."
-      value={createPass.savedPassword}
-      className="form-input w-100"
-      onChange={(event) => setCreatePass(event.target.value)}
-    />
-  </div>
-</div>
 
-  
-              <div className="col-12 col-lg-9 flex-center"> {/* Use the same class for consistency */}
-                <div className="button-container"> {/* New container for the button */}
-                  <button className="btn btn-info btn-block py-3" type="submit">
-                    Add Credentials
-                  </button>
-                </div>
+              <div className="col-12 col-lg-9">
+                <input
+                  placeholder="Add a website..."
+                  value={loginTo}
+                  className="form-input w-100"
+                  onChange={(event) => setLoginTo(event.target.value)}
+                />
+                <input
+                  placeholder="Add a username..."
+                  value={savedUsername}
+                  className="form-input w-100"
+                  onChange={(event) => setSavedUsername(event.target.value)}
+                />
+                <input
+                  placeholder="Add a password..."
+                  value={savedPassword}
+                  className="form-input w-100"
+                  onChange={(event) => setSavedPassword(event.target.value)}
+                />
+              </div>
+    
+              <div className="col-12 col-lg-3">
+                <button className="btn btn-info btn-block py-3" type="submit">
+                  Add Credentials
+                </button>
+
               </div>
               
               {error && (
