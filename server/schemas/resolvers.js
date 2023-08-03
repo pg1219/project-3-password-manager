@@ -33,11 +33,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPassword: async (parent, { password }, context) => {
+    addPassword: async (parent, { loginTo, username, password }, context) => {
       if (context.user) {
         const addedPw = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedPassword: password } },
+          { $addToSet: { loginTo: loginTo, savedUsername: username, savedPassword: password } },
           { new: true }
         );
         return addedPw;

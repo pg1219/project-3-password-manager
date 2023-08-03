@@ -19,9 +19,9 @@ const CreatePass = ({ _id }) => {
 
         try{
             const { data } = await addPass({
-                variables: {_id, createPass }
+                variables: { loginTo, savedUsername, savedPassword }
             })
-            setCreatePass('')
+            setSavedPassword('')
             console.log(data)
         } catch (err) {
             console.error(err);
@@ -33,7 +33,7 @@ const CreatePass = ({ _id }) => {
           
           {Auth.loggedIn() ? (
             <>
-            <h4>Add a website, username and password below.</h4>
+            <h4>Add the credentials you want to save below</h4>
             <form
               className="flex-row justify-center justify-space-between-md align-center"
               onSubmit={handleFormSubmit}
