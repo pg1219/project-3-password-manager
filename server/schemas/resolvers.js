@@ -6,9 +6,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findOne({ _id: context.user._id }).select(
-          "__v -password"
-        );
+        const user = await User.findOne({ _id: context.user._id });
 
         return user;
       }
@@ -33,11 +31,12 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPassword: async (parent, { password }, context) => {
+    addPassword: async (parent, { login, username, password }, context) => {
+      console.log(context.user)
       if (context.user) {
         const addedPw = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedPassword: password } },
+          { $addToSet: { savedPassword: password, savedUsername: username, loginTo: login } },
           { new: true }
         );
         return addedPw;
