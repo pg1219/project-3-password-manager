@@ -1,30 +1,43 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PASSWORD } from "../utils/mutations";
+import { QUERY_ME } from "../utils/queries"
 import { Link } from "react-router-dom";
 
 import Auth from "../utils/auth";
 
-const UpdatePass = () => {
-    const [loginTo, setLoginTo] = useState("");
+const UpdatePass = (loginTo) => {
+    // const [loginTo, setLoginTo] = useState("");
     const [savedUsername, setSavedUsername] = useState("");
     const [savedPassword, setSavedPassword] = useState("");
 
-    const [updatePass, { data, error }] = useMutation(UPDATE_PASSWORD);
+    const [updatePass, { data, error }] = useMutation(UPDATE_PASSWORD, { 
+        update(cache, { data: { updatePass } }) {
+            try {
+                cache.writeQuery({
+                    query: QUERY_ME,
+                    data: { me: [updatePass, savedUsername, savedPassword] }, 
+                });
+            }
+            catch (err) {
+                console.log(err)
+            }
+        }
+    });
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
     
-            console.log(loginTo + savedUsername + savedPassword);
+            console.log(savedUsername + savedPassword);
 
 
             try {
                 const { data } = await updatePass({
-                    variables: { loginTo, savedUsername, savedPassword }, 
+                    variables: { loginTo: savedUsername, savedPassword }, 
                 });
                 setSavedPassword("");
                 setSavedUsername("");
-                setLoginTo("");
+                // setLoginTo("");
                 window.location.assign("/")
                 console.log(data);
             } catch (err) {
@@ -36,7 +49,7 @@ const UpdatePass = () => {
           {Auth.loggedIn() ? (
             <>
               <h4 className="text-center custom-h4">
-                Update your credentials below.
+                Update your credentials for .
               </h4>
     
               <form
@@ -44,12 +57,12 @@ const UpdatePass = () => {
                 onSubmit={handleFormSubmit}
               >
                 <div className="col-12 col-lg-9">
-                  <input
+                  {/* <input
                     placeholder="Add a website..."
                     value={loginTo}
                     className="form-input w-100"
                     onChange={(event) => setLoginTo(event.target.value)}
-                  />
+                  /> */}
                   <input
                     placeholder="Add a username..."
                     value={savedUsername}

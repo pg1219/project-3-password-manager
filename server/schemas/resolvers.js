@@ -59,15 +59,17 @@ const resolvers = {
       );
     },
     updatePassword: async (parent, { loginTo, savedUsername, savedPassword }, context) => {
-      console.log(context.user)
+      console.log(loginTo)
       console.log(savedPassword, savedUsername, loginTo)
       if (context.user) {
         const updatePw = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { savedPasswords: {savedPassword, savedUsername, loginTo}} },
-          { new: true }
+          { _id: loginTo },
+          { $AddToSet: { savedPassword, savedUsername } },
+          { new: true,
+            runValidators: true, }
+
         );
-        console.log("updatedPass", updatePw)
+        console.log("updatePw", updatePw)
         return updatePw;
       }
       throw new AuthenticationError("You must be logged in to add a password");
