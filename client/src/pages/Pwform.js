@@ -88,7 +88,7 @@ const CreatePass = () => {
         </>
       ) : (
         <p>
-          Please login to add a password <Link to="/login">login</Link> or{" "}
+          Please login to add a credential <Link to="/login">login</Link> or{" "}
           <Link to="/signup">signup</Link>
         </p>
       )}
