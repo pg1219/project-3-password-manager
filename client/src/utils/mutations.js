@@ -53,3 +53,18 @@ mutation Login($email: String!, $password: String!) {
       }
     }
   }`;
+
+  export const UPDATE_PASSWORD = gql`
+  mutation UpdatePassword($loginTo: String!, $savedUsername: String!, $savedPassword: String!) {
+    updatePassword(loginTo: $loginTo, savedUsername: $savedUsername, savedPassword: $savedPassword) {
+      _id
+      email
+      username
+      savedPasswords {
+        _id
+        loginTo
+        savedUsername
+        savedPassword
+      }
+    }
+  }`

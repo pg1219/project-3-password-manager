@@ -21,10 +21,10 @@ const Nav = () => {
           {Auth.loggedIn() ? (
             <div className="custom-logged-in-buttons">
               <Link className="custom-button" to="/">
-                View My Passwords
+                View My Credentials
               </Link>
               <Link className="custom-button" to="/create">
-                Save a new password
+                Save a New Credential
               </Link>
               <button className="custom-button" onClick={logout}>
                 Logout
