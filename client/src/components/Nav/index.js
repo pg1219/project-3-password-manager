@@ -14,9 +14,9 @@ const Nav = () => {
     <nav className="custom-nav">
       <div className="custom-nav-content">
         <Link className="custom-nav-link" to="/">
-          <h1 className="custom-nav-logo">Password Manager</h1>
+          <h1 className="custom-nav-logo">LockedIn</h1>
         </Link>
-        <p className="custom-nav-description">Never forget your passwords again</p>
+        <p className="custom-nav-description">Never get locked out</p>
         <div className="custom-buttons">
           {Auth.loggedIn() ? (
             <div className="custom-logged-in-buttons">
@@ -24,7 +24,9 @@ const Nav = () => {
                 View My Credentials
               </Link>
               <Link className="custom-button" to="/create">
-                Save a New Credential
+
+                Save New Credentials
+
               </Link>
               <button className="custom-button" onClick={logout}>
                 Logout

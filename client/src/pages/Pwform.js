@@ -19,6 +19,7 @@ const CreatePass = () => {
             const { data } = await addPass({
               variables:  { loginTo, savedUsername, savedPassword }
             })
+
             setSavedPassword("")
             setSavedUsername("")
             setLoginTo("")
@@ -29,10 +30,14 @@ const CreatePass = () => {
     };
 
     return (
-      <div className="center-container"> {/* Apply a CSS class to the parent container */}
+
+      <div>
         {Auth.loggedIn() ? (
           <>
-            <h4 className="text-center custom-h4">Add a website, username and password below.</h4>
+            <h4 className="text-center custom-h4">Add the credentials you want to lock in</h4>
+
+
+
 
             <form
               className="flex-row justify-center justify-space-between-md align-center"
@@ -59,7 +64,9 @@ const CreatePass = () => {
                 />
               </div>
     
+
               <div className="col-12 col-lg-9">
+
                 <button className="btn btn-info btn-block py-3" type="submit">
                   Add Credentials
                 </button>
@@ -74,13 +81,16 @@ const CreatePass = () => {
           </>
         ) : (
           <p>
-            Please login to add a password{' '}
+
+            Please login to add credentials{' '}
+
             <Link to="/login">login</Link> or <Link to="/signup">signup</Link>
           </p>
         )}
       </div>
+
     );
   };
  
-  
+
 export default CreatePass;

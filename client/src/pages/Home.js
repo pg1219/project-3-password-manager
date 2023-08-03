@@ -47,7 +47,9 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
       {Auth.loggedIn() ? (
         <>
       <div>
-        <h1> Your Credentials !</h1>
+
+        <h1> Your Saved Credentials</h1>
+
       </div>
       <div>
         <h2 className="pt-5">
