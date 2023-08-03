@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 import Auth from "../utils/auth";
 
-const UpdatePass = (loginTo) => {
-    // const [loginTo, setLoginTo] = useState("");
+const UpdatePass = () => {
+    const [loginTo, setLoginTo] = useState("");
     const [savedUsername, setSavedUsername] = useState("");
     const [savedPassword, setSavedPassword] = useState("");
 
@@ -16,7 +16,7 @@ const UpdatePass = (loginTo) => {
             try {
                 cache.writeQuery({
                     query: QUERY_ME,
-                    data: { me: [updatePass, savedUsername, savedPassword] }, 
+                    data: { me: [updatePass, loginTo,savedUsername, savedPassword] }, 
                 });
             }
             catch (err) {
@@ -28,16 +28,16 @@ const UpdatePass = (loginTo) => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
     
-            console.log(savedUsername + savedPassword);
+            console.log(loginTo + savedUsername + savedPassword);
 
 
             try {
                 const { data } = await updatePass({
-                    variables: { loginTo: savedUsername, savedPassword }, 
+                    variables: { loginTo, savedUsername, savedPassword }, 
                 });
                 setSavedPassword("");
                 setSavedUsername("");
-                // setLoginTo("");
+                setLoginTo("");
                 window.location.assign("/")
                 console.log(data);
             } catch (err) {
@@ -49,7 +49,7 @@ const UpdatePass = (loginTo) => {
           {Auth.loggedIn() ? (
             <>
               <h4 className="text-center custom-h4">
-                Update your credentials for .
+                Update your credentials for { loginTo }.
               </h4>
     
               <form
