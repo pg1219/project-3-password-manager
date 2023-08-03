@@ -55,7 +55,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
         </h2>
 
         <div>
-          {userData.savedPassword?.map((password) => {
+          {userData.savedPasswords?.map((password) => {
             return (
               <div>
                 <main>

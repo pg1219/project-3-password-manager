@@ -10,7 +10,7 @@ const CreatePass = () => {
     const [savedUsername, setSavedUsername] = useState("");
     const [savedPassword, setSavedPassword] = useState("");
     
-    const [addPass, { loading, error }] = useMutation(ADD_PASSWORD);
+    const [addPass, { data, error }] = useMutation(ADD_PASSWORD);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault()
@@ -20,10 +20,13 @@ const CreatePass = () => {
         //   return false;
         // }
 
+        console.log(loginTo + savedUsername + savedPassword);
+
         try{
             const { data } = await addPass({
-              variables:  { loginTo, savedUsername, savedPassword }
+              variables:  {loginTo, savedUsername, savedPassword }
             })
+            console.log("line 29")
             setSavedPassword("")
             setSavedUsername("")
             setLoginTo("")
