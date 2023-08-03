@@ -427,6 +427,67 @@ ul.square {
   list-style-type: square;
   font-size: 1.3rem;
 }
+/* Example custom CSS with gradient background */
+.custom-nav {
+  background-image: linear-gradient(to right, #8d7497, #4dd5e7);
+  color: #fff;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.custom-nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-nav-logo {
+  font-size: 3rem;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.custom-nav-description {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.custom-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.custom-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border: none;
+  background-color: #1ba4a0;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.custom-button:hover {
+  background-color: #1abfe9;
+}
+
+.custom-button.logout-button {
+  background-color: #f44336;
+}
+
+.custom-button.logout-button:hover {
+  background-color: #d32f2f;
+}
 
 label {
   display: inline-block;
@@ -940,7 +1001,12 @@ a:hover {
 
 /* BACKGROUND UTILS */
 .bg-primary {
-  background-color: #83b8f0 !important;
+
+  background-image: linear-gradient(to right, #8d7497, #4dd5e7);
+
+
+ 
+
 }
 
 .bg-info {
