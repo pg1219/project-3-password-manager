@@ -35,6 +35,7 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  color: teal;
 }
 
 /* Grouping content
@@ -389,6 +390,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  color: teal;
 }
 
 h3 {
@@ -938,7 +940,7 @@ a:hover {
 
 /* BACKGROUND UTILS */
 .bg-primary {
-  background-color: #2d3e50 !important;
+  background-color: #83b8f0 !important;
 }
 
 .bg-info {
@@ -1078,6 +1080,7 @@ a:hover {
 .btn.btn-light {
   background-color: #d9e9e8;
   color: #1a1a1a;
+  font-weight: 700;
 }
 
 .btn.btn-light:hover {
