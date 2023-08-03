@@ -1,32 +1,25 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { useMutation } from "@apollo/client";
 import { ADD_PASSWORD } from "../utils/mutations";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import Auth from "../utils/auth";
 
 const CreatePass = () => {
-
-  const [loginTo, setLoginTo] = useState("");
-  const [savedUsername, setSavedUsername] = useState("");
-  const [savedPassword, setSavedPassword] = useState("");
-
- 
+    const [loginTo, setLoginTo] = useState("");
+    const [savedUsername, setSavedUsername] = useState("");
+    const [savedPassword, setSavedPassword] = useState("");
     
-    const [addPass, { data, error }] = useMutation(ADD_PASSWORD);
+    const [addPass, { loading, error }] = useMutation(ADD_PASSWORD);
 
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-        console.log(loginTo + savedUsername + savedPassword);
-
+    const handleFormSubmit = async (event) => {
+        event.preventDefault()
 
         try{
             const { data } = await addPass({
-              variables:  {loginTo, savedUsername, savedPassword }
+              variables:  { loginTo, savedUsername, savedPassword }
             })
-            console.log("line 29")
+
             setSavedPassword("")
             setSavedUsername("")
             setLoginTo("")
@@ -37,10 +30,14 @@ const CreatePass = () => {
     };
 
     return (
+
       <div>
         {Auth.loggedIn() ? (
           <>
             <h4 className="text-center custom-h4">Add the credentials you want to lock in</h4>
+
+
+
 
             <form
               className="flex-row justify-center justify-space-between-md align-center"
@@ -67,7 +64,9 @@ const CreatePass = () => {
                 />
               </div>
     
-              <div className="col-12 col-lg-3">
+
+              <div className="col-12 col-lg-9">
+
                 <button className="btn btn-info btn-block py-3" type="submit">
                   Add Credentials
                 </button>
@@ -82,15 +81,16 @@ const CreatePass = () => {
           </>
         ) : (
           <p>
+
             Please login to add credentials{' '}
+
             <Link to="/login">login</Link> or <Link to="/signup">signup</Link>
           </p>
         )}
       </div>
-    );    
+
+    );
+  };
  
-
-
-};
 
 export default CreatePass;
