@@ -34,15 +34,16 @@ const CreatePass = () => {
     };
 
     return (
-        <div>
-          
-          {Auth.loggedIn() ? (
-            <>
-            <h4>Add a website, username and password below.</h4>
+      <div>
+        {Auth.loggedIn() ? (
+          <>
+           <h4 className="text-center custom-h4">Add a website, username and password below.</h4>
+
             <form
               className="flex-row justify-center justify-space-between-md align-center"
               onSubmit={handleFormSubmit}
             >
+
               <div className="col-12 col-lg-9">
                 <input
                   placeholder="Add a website..."
@@ -68,23 +69,25 @@ const CreatePass = () => {
                 <button className="btn btn-info btn-block py-3" type="submit">
                   Add Credentials
                 </button>
+
               </div>
+              
               {error && (
                 <div className="col-12 my-3 bg-danger text-white p-3">
                   {error.message}
                 </div>
               )}
             </form>
-            </>
-          ) : (
-            <p>
-              Please login to add a password{' '}
-              <Link to="/login">login</Link> or <Link to="/signup">signup</Link>
-            </p>
-          )} 
-        </div>
-      );
-    };
-    
-    export default CreatePass;
+          </>
+        ) : (
+          <p>
+            Please login to add a password{' '}
+            <Link to="/login">login</Link> or <Link to="/signup">signup</Link>
+          </p>
+        )}
+      </div>
+    );
+  };
+  
+  export default CreatePass;
     
