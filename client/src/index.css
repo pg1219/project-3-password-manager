@@ -1093,7 +1093,7 @@ a:hover {
 }
 
 .btn.btn-block {
-  width: auto; /* Let the content determine the width */
+  width: 100%; /* Let the content determine the width */
   display: block;
   text-align: center;
   padding: 0.5rem 3rem; /* Adjust padding for better fit */
@@ -1106,6 +1106,7 @@ a:hover {
   color: #1a1a1a;
   background-color: #aeaeae;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 /* Your existing styles */
 
@@ -1267,6 +1268,7 @@ form .form-input {
   font-size: 1.2rem;
   border: 1px solid #484848;
   border-radius: 0.3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 form .form-input.form-input-squared {
