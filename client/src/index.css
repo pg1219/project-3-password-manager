@@ -1008,6 +1008,12 @@ a:hover {
  
 
 }
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This will make the container take up the full viewport height */
+}
 
 .bg-info {
   background-color: #b6f1f6dd !important;
