@@ -43,7 +43,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
   return (
     <div>
       <div>
-        <h1> Your Saved Passwords!</h1>
+        <h1> Your Saved Credentials</h1>
       </div>
       <div>
         <h2 className="pt-5">

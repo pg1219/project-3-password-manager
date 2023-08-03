@@ -35,7 +35,7 @@ const CreatePass = () => {
       <div>
         {Auth.loggedIn() ? (
           <>
-            <h4 className="text-center custom-h4">Add a website, username and password below.</h4>
+            <h4 className="text-center custom-h4">Add the credentials you want to lock in</h4>
 
             <form
               className="flex-row justify-center justify-space-between-md align-center"
@@ -77,7 +77,7 @@ const CreatePass = () => {
           </>
         ) : (
           <p>
-            Please login to add a password{' '}
+            Please login to add credentials{' '}
             <Link to="/login">login</Link> or <Link to="/signup">signup</Link>
           </p>
         )}
