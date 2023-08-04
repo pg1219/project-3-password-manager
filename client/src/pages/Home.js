@@ -46,6 +46,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
     <div>
       {Auth.loggedIn() ? (
         <>
+
       <div>
         <h1> Your Credentials !</h1>
       </div>
@@ -83,9 +84,10 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
       </div>
       </>
        ) : (
+
         <p>
-          Please login to view your credentials <Link to="/login">login</Link> or{" "}
-          <Link to="/signup">signup</Link>
+          Please login to view your credentials <Link to="/login">login</Link>{" "}
+          or <Link to="/signup">signup</Link>
         </p>
       )}
     </div>
