@@ -49,7 +49,7 @@ const UpdatePass = () => {
           {Auth.loggedIn() ? (
             <>
               <h4 className="text-center custom-h4">
-                Update your credentials for { loginTo }.
+                Update your credentials for { loginTo }
               </h4>
     
               <form

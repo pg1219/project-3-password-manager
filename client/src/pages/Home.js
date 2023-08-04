@@ -45,26 +45,29 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
     <div className="saved-passwords-container">
       {Auth.loggedIn() ? (
         <>
+
+
           <div className="heading">
-            <h1>Your Credentials !</h1>
+            <h1>Your Saved Credentials</h1>
           </div>
           <div className="password-list">
             <h2 className="sub-heading">
-              {userData.savedPassword?.length
-                ? `Viewing ${userData.savedPassword.length} saved ${
-                    userData.savedPassword.length === 1
-                      ? "password"
-                      : "passwords"
+              {userData.savedPasswords?.length
+                ? `Viewing ${userData.savedPasswords.length} saved ${
+                    userData.savedPasswords.length > 0
+                      ? "credentials"
+                      : "credentials"
                   }`
                 : "You have not saved any credentials yet!"}
             </h2>
-            <div className="password-card-list">
-              {userData.savedPasswords?.map((password) => (
-                <div className="password-card" key={password.loginTo}>
-                  <main>
-                    <div className="password-card-content">
+            <div>
+              {userData.savedPasswords?.map((password) => {
+                return (
+                  <div>
+                    <main>
                       <h3>
-                        This is your login information for {password.loginTo}
+                        Credentials for {password.loginTo}
+
                       </h3>
                       <h4>Your Username: {password.savedUsername}</h4>
                       <h4>Your Password: {password.savedPassword}</h4>
@@ -80,14 +83,17 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                       >
                         Delete Credentials for {password.loginTo} !
                       </button>
-                    </div>
-                  </main>
-                </div>
-              ))}
+
+                    </main>
+                  </div>
+                );
+              })}
+
             </div>
           </div>
         </>
       ) : (
+
         <p>
           Please login to view your credentials <Link to="/login">login</Link>{" "}
           or <Link to="/signup">signup</Link>
