@@ -45,8 +45,6 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
     <div className="saved-passwords-container">
       {Auth.loggedIn() ? (
         <>
-
-
           <div className="heading">
             <h1>Your Saved Credentials</h1>
           </div>
