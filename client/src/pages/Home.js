@@ -57,6 +57,25 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                 : "You have not saved any credentials yet!"}
             </h2>
 
+
+        <div>
+          {userData.savedPasswords?.map((password) => {
+            return (
+              <div>
+                <main>
+                  <h3>This is your login information for {password.loginTo}</h3>
+                  <h4>Your Username: {password.savedUsername}</h4>
+                  <h4>Your Password: {password.savedPassword}</h4>
+                  <Link className="custom-button" to={`/update/${password.loginTo}`}>
+                Update Credentials
+              </Link>
+                  <button
+                    className="btn-block btn-danger"
+                    onClick={() => handleDeletePassword(password.loginTo)}
+                  >
+                    Delete Credentials for {password.loginTo} !
+                  </button>
+
             {userData.savedPasswords?.map((password) => (
               <div className="password-entry" key={password.loginTo}>
                 <h3>{password.loginTo}</h3>
@@ -71,6 +90,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                 >
                   Delete Credentials
                 </button>
+
               </div>
             ))}
           </div>

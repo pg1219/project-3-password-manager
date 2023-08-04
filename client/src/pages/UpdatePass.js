@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PASSWORD } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries"
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import Auth from "../utils/auth";
 
 const UpdatePass = () => {
-    const [loginTo, setLoginTo] = useState("");
+
+    const { loginTo } = useParams();
     const [savedUsername, setSavedUsername] = useState("");
     const [savedPassword, setSavedPassword] = useState("");
 
@@ -37,7 +38,6 @@ const UpdatePass = () => {
                 });
                 setSavedPassword("");
                 setSavedUsername("");
-                setLoginTo("");
                 window.location.assign("/")
                 console.log(data);
             } catch (err) {
