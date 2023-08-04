@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { REMOVE_PASSWORD } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 import { Link } from "react-router-dom";
 
-
 import Auth from "../utils/auth";
-
 
 const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -42,10 +40,12 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
   if (loading) {
     return <h1> One Moment Please...</h1>;
   }
+
   return (
-    <div>
+    <div className="saved-passwords-container">
       {Auth.loggedIn() ? (
         <>
+
 
           <div className="heading">
             <h1>Your Saved Credentials</h1>
@@ -67,6 +67,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                     <main>
                       <h3>
                         Credentials for {password.loginTo}
+
                       </h3>
                       <h4>Your Username: {password.savedUsername}</h4>
                       <h4>Your Password: {password.savedPassword}</h4>
@@ -82,10 +83,12 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                       >
                         Delete Credentials for {password.loginTo} !
                       </button>
+
                     </main>
                   </div>
                 );
               })}
+
             </div>
           </div>
         </>
