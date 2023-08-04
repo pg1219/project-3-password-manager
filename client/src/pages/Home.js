@@ -4,7 +4,9 @@ import { REMOVE_PASSWORD } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 import { Link } from "react-router-dom";
 
+
 import Auth from "../utils/auth";
+
 
 const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -40,11 +42,11 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
   if (loading) {
     return <h1> One Moment Please...</h1>;
   }
-
   return (
-    <div className="saved-passwords-container">
+    <div>
       {Auth.loggedIn() ? (
         <>
+
           <div className="heading">
             <h1>Your Saved Credentials</h1>
           </div>
@@ -88,6 +90,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
           </div>
         </>
       ) : (
+
         <p>
           Please login to view your credentials <Link to="/login">login</Link>{" "}
           or <Link to="/signup">signup</Link>
