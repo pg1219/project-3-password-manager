@@ -360,15 +360,85 @@ body {
   gap: 1rem; /* Add spacing between inputs */
 }
 
+.saved-passwords-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
 
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sub-heading {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.password-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.password-entry {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.update-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.delete-button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.update-button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.update-button a {
+  color: white;
+  text-decoration: none;
+}
 
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 18px;
-  color: #c6deed; /* Changed the text color to a dark shade for better readability */
+  font-size: 19px;
+  color: #0f123f; /* Changed the text color to a dark shade for better readability */
   background-color: #f0f0f0; /* Changed the background color to a light gray */
 }
 
@@ -396,7 +466,7 @@ h3 {
 }
 
 h4 {
-  font-size: 3rem;
+  font-size: 2rem;
 
 }
 
