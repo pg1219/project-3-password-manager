@@ -47,43 +47,49 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
       {Auth.loggedIn() ? (
         <>
 
-      <div>
-        <h1> Your Credentials !</h1>
-      </div>
-      <div>
-        <h2 className="pt-5">
-          {userData.savedPassword?.length
-            ? `Viewing ${userData.savedPassword.length} saved ${
-                userData.savedPassword.length === 1 ? "password" : "passwords"
-              }:`
-            : "You have not saved any credentials yet!"}
-        </h2>
-
-        <div>
-          {userData.savedPasswords?.map((password) => {
-            return (
-              <div>
-                <main>
-                  <h3>This is your login information for {password.loginTo}</h3>
-                  <h4>Your Username: {password.savedUsername}</h4>
-                  <h4>Your Password: {password.savedPassword}</h4>
-                  <Link className="custom-button" to={`/update/${password.loginTo}`}>
-                Update Credentials
-              </Link>
-                  <button
-                    className="btn-block btn-danger"
-                    onClick={() => handleDeletePassword(password.loginTo)}
-                  >
-                    Delete Credentials for {password.loginTo} !
-                  </button>
-                </main>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      </>
-       ) : (
+          <div className="heading">
+            <h1>Your Saved Credentials</h1>
+          </div>
+          <div className="password-list">
+            <h2 className="sub-heading">
+              {userData.savedPasswords?.length
+                ? `Viewing ${userData.savedPasswords.length} saved ${
+                    userData.savedPasswords.length > 0
+                      ? "credentials"
+                      : "credentials"
+                  }`
+                : "You have not saved any credentials yet!"}
+            </h2>
+            <div>
+              {userData.savedPasswords?.map((password) => {
+                return (
+                  <div>
+                    <main>
+                      <h3>
+                        Credentials for {password.loginTo}
+                      </h3>
+                      <h4>Your Username: {password.savedUsername}</h4>
+                      <h4>Your Password: {password.savedPassword}</h4>
+                      <Link
+                        className="custom-button"
+                        to={`/update/${password.loginTo}`}
+                      >
+                        Update Credentials
+                      </Link>
+                      <button
+                        className="btn-block btn-danger"
+                        onClick={() => handleDeletePassword(password.loginTo)}
+                      >
+                        Delete Credentials for {password.loginTo} !
+                      </button>
+                    </main>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      ) : (
 
         <p>
           Please login to view your credentials <Link to="/login">login</Link>{" "}
