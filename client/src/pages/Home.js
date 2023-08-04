@@ -66,7 +66,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                   <h3>This is your login information for {password.loginTo}</h3>
                   <h4>Your Username: {password.savedUsername}</h4>
                   <h4>Your Password: {password.savedPassword}</h4>
-                  <Link className="custom-button" to="/update">
+                  <Link className="custom-button" to={`/update/${password.loginTo}`}>
                 Update Credentials
               </Link>
                   <button

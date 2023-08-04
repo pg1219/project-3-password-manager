@@ -31,16 +31,24 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPassword: async (parent, { loginTo, savedUsername, savedPassword }, context) => {
-      console.log(context.user)
-      console.log(savedPassword, savedUsername, loginTo)
+    addPassword: async (
+      parent,
+      { loginTo, savedUsername, savedPassword },
+      context
+    ) => {
+      console.log(context.user);
+      console.log(savedPassword, savedUsername, loginTo);
       if (context.user) {
         const addedPw = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedPasswords: {savedPassword, savedUsername, loginTo}} },
+          {
+            $addToSet: {
+              savedPasswords: { savedPassword, savedUsername, loginTo },
+            },
+          },
           { new: true }
         );
-        console.log("addedPass", addedPw)
+        console.log("addedPass", addedPw);
         return addedPw;
       }
       throw new AuthenticationError("You must be logged in to add a password");
@@ -49,7 +57,7 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedPasswords: {loginTo} } },
+          { $pull: { savedPasswords: { loginTo } } },
           { new: true }
         );
         return updatedUser;
@@ -58,18 +66,20 @@ const resolvers = {
         "You must be logged in to delete passwords"
       );
     },
-    updatePassword: async (parent, { loginTo, savedUsername, savedPassword }, context) => {
-      console.log(loginTo)
-      console.log(savedPassword, savedUsername, loginTo)
+    updatePassword: async (
+      parent,
+      { loginTo, savedUsername, savedPassword },
+      context
+    ) => {
+      console.log(loginTo);
+      console.log(savedPassword, savedUsername, loginTo);
       if (context.user) {
         const updatePw = await User.findOneAndUpdate(
-          { _id: loginTo },
-          { $AddToSet: { savedPassword, savedUsername } },
-          { new: true,
-            runValidators: true, }
-
+          { _id: context.user._id, "savedPasswords.loginTo": loginTo },
+          { $set: { "savedPasswords.$.loginTo": loginTo, "savedPasswords.$.savedPassword": savedPassword, "savedPasswords.$.savedUsername": savedUsername } },
+          { new: true, runValidators: true }
         );
-        console.log("updatePw", updatePw)
+        console.log("updatePw", updatePw);
         return updatePw;
       }
       throw new AuthenticationError("You must be logged in to add a password");

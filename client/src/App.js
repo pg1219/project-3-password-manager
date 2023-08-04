@@ -63,7 +63,7 @@ function App() {
               element={<Pwform />}
             />
             <Route 
-              path="/update"
+              path="/update/:loginTo"
               element={<UpdatePass />}
             />
           </Routes>
