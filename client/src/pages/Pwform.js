@@ -40,29 +40,30 @@ const CreatePass = () => {
 
 
             <form
-              className="flex-row justify-center justify-space-between-md align-center"
-              onSubmit={handleFormSubmit}
-            >
-              <div className="col-12 col-lg-9">
-                <input
-                  placeholder="Add a website..."
-                  value={loginTo}
-                  className="form-input w-100"
-                  onChange={(event) => setLoginTo(event.target.value)}
-                />
-                <input
-                  placeholder="Add a username..."
-                  value={savedUsername}
-                  className="form-input w-100"
-                  onChange={(event) => setSavedUsername(event.target.value)}
-                />
-                <input
-                  placeholder="Add a password..."
-                  value={savedPassword}
-                  className="form-input w-100"
-                  onChange={(event) => setSavedPassword(event.target.value)}
-                />
-              </div>
+  className="flex-column align-center"
+  onSubmit={handleFormSubmit}
+>
+<div className="col-12 col-lg-10 mx-auto mt-4">
+  <input
+    placeholder="Add a website..."
+    value={loginTo}
+    className="form-input w-100 mb-3"
+    onChange={(event) => setLoginTo(event.target.value)}
+  />
+  <input
+    placeholder="Add a username..."
+    value={savedUsername}
+    className="form-input w-100 mb-3"
+    onChange={(event) => setSavedUsername(event.target.value)}
+  />
+  <input
+    placeholder="Add a password..."
+    value={savedPassword}
+    className="form-input w-100 mb-3"
+    onChange={(event) => setSavedPassword(event.target.value)}
+  />
+</div>
+
     
 
               <div className="col-12 col-lg-9">
