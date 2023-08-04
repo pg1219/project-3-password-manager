@@ -50,11 +50,11 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
           </div>
           <div className="password-list">
             <h2 className="sub-heading">
-              {userData.savedPassword?.length
-                ? `Viewing ${userData.savedPassword.length} saved ${
-                    userData.savedPassword.length === 1
-                      ? "password"
-                      : "passwords"
+              {userData.savedPasswords?.length
+                ? `Viewing ${userData.savedPasswords.length} saved ${
+                    userData.savedPasswords.length > 0
+                      ? "credentials"
+                      : "credentials"
                   }`
                 : "You have not saved any credentials yet!"}
             </h2>
@@ -64,7 +64,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                   <div>
                     <main>
                       <h3>
-                        This is your login information for {password.loginTo}
+                        Credentials for {password.loginTo}
                       </h3>
                       <h4>Your Username: {password.savedUsername}</h4>
                       <h4>Your Password: {password.savedPassword}</h4>
