@@ -63,7 +63,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
             <div>
               {userData.savedPasswords?.map((password) => {
                 return (
-                  <div>
+                  <div className="password-entry">
                     <main>
                       <h3>
                         Credentials for {password.loginTo}
@@ -81,7 +81,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                         className="btn-block btn-danger"
                         onClick={() => handleDeletePassword(password.loginTo)}
                       >
-                        Delete Credentials for {password.loginTo} !
+                        Delete Credentials for {password.loginTo}
                       </button>
 
                     </main>

@@ -1,7 +1,5 @@
 # LockedIn
-![Lock logo](https://files.slack.com/files-pri/T04J7BYU4LE-F05LMLV35EV/lockedinlogo.png)
-
-App Logo
+![Lock logo](./client/src/lockedinlogo.png)
 
 Overview
 The LockedIn App is a secure and convenient website designed to help you save and manage your credentials for different websites. With LockedIn, you no longer need to remember multiple usernames and passwords for various online services. The websites ensures that your sensitive information is encrypted and stored safely, providing you with quick access to your login details whenever you need them. Overall, it provides a reliable and efficient solution for simplifying and securing the process of managing multiple website credentials.
@@ -31,3 +29,8 @@ Local Storage Only: The app stores your encrypted data locally on your device an
 
 License
 The Credentials Saver App is released under the MIT License, allowing you to use, modify, and distribute the software freely.
+
+
+Repo: https://github.com/pg1219/project-3-password-manager
+
+Website: 
