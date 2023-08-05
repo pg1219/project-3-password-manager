@@ -1383,12 +1383,12 @@ footer p {
 }
 
 .btn.btn-info {
-  background-color: #1bbc9b;
+  background-color: #8daaa9;
   color: #ffffff;
 }
 
 .btn.btn-info:hover {
-  background-color: #31e1bd;
+  background-color: rgb(195, 207, 197);
 }
 
 .btn.btn-light {
