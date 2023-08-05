@@ -545,6 +545,12 @@ ul.square {
   text-align: center;
 }
 
+.custom-button:hover {
+  color: black;
+  background-color: gray;
+}
+
+
 
 
 .custom-button-2 {
@@ -583,11 +589,11 @@ ul.square {
   background-color: #cc6363;
 }
 .custom-button-2:hover {
-  background-color: #81a8db;
+  background-color: rgb(195, 207, 197);;
 }
-.custom-button:hover {
+/* .custom-button:hover {
   background-color: black;
-}
+} */
 
 /* .custom-button.logout-button {
   background-color: #f44336;
@@ -823,7 +829,7 @@ footer p {
 } */
 
 .custom-button:hover {
-  background-color: #5099dd;
+  background-color: rgb(195, 207, 197);
 }
 
 .btn-block {
