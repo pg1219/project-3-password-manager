@@ -45,63 +45,52 @@ const UpdatePass = () => {
             }
     };
     return (
-        <div>
-          {Auth.loggedIn() ? (
-            <>
-              <h4 className="text-center custom-h4">
-                Update your credentials for { loginTo }
-              </h4>
-    
-              <form
-                className="flex-row justify-center justify-space-between-md align-center"
-                onSubmit={handleFormSubmit}
-              >
-                <div className="col-12 col-lg-9">
-                  {/* <input
-                    placeholder="Add a website..."
-                    value={loginTo}
-                    className="form-input w-100"
-                    onChange={(event) => setLoginTo(event.target.value)}
-                  /> */}
-                  <input
-                    placeholder="Add a username..."
-                    value={savedUsername}
-                    className="form-input w-100"
-                    onChange={(event) => setSavedUsername(event.target.value)}
-                  />
-                  <input
-                    placeholder="Add a password..."
-                    value={savedPassword}
-                    className="form-input w-100"
-                    onChange={(event) => setSavedPassword(event.target.value)}
-                  />
+      <div className="center-content">
+        {Auth.loggedIn() ? (
+          <div className="form-container">
+            <h4 className="text-center custom-h4">
+              Update your credentials for {loginTo}
+            </h4>
+  
+            <form className="form" onSubmit={handleFormSubmit}>
+              <div className="form-group">
+                <input
+                  placeholder="Add a username..."
+                  value={savedUsername}
+                  className="form-input"
+                  onChange={(event) => setSavedUsername(event.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  placeholder="Add a password..."
+                  value={savedPassword}
+                  className="form-input"
+                  onChange={(event) => setSavedPassword(event.target.value)}
+                />
+              </div>
+  
+              <div className="text-center">
+                <button className="btn btn-info btn-block" type="submit">
+                  Update Credentials
+                </button>
+              </div>
+  
+              {error && (
+                <div className="error-message">
+                  {error.message}
                 </div>
-    
-                <div className="col-12 col-lg-9">
-                  {" "}
-                  {/* Change the column class here */}
-                  <button className="btn btn-info btn-block py-3" type="submit">
-                    Update Credentials
-                  </button>
-                </div>
-    
-                {error && (
-                  <div className="col-12 my-3 bg-danger text-white p-3">
-                    {error.message}
-                  </div>
-                )}
-              </form>
-            </>
-          ) : (
-            <p>
-              Please login to add a password <Link to="/login">login</Link> or{" "}
-              <Link to="/signup">signup</Link>
-            </p>
-          )}
-        </div>
-      );
-
-    
-};
-
-export default UpdatePass;
+              )}
+            </form>
+          </div>
+        ) : (
+          <p>
+            Please login to add a password <Link to="/login">login</Link> or{" "}
+            <Link to="/signup">signup</Link>
+          </p>
+        )}
+      </div>
+    );
+  };
+  
+  export default UpdatePass;
