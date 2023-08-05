@@ -778,6 +778,18 @@ footer p {
   margin-bottom: 0rem;
 }
 
+.heading-card {
+  text-decoration: underline;
+}
+
+.head-font {
+  font-size: 50px
+}
+
+.login-color {
+  color: #8DAAA9
+}
+
 .password-list {
   display: flex;
   flex-direction: column;
@@ -790,8 +802,8 @@ footer p {
   align-items: center;
   text-align: center;
   color: rgb(0, 0, 0);
-  margin-bottom: 1rem;
   width: 100%;
+  font-size: 15px;
 }
 
 .password-card-list {
