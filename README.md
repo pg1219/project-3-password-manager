@@ -30,6 +30,11 @@ Local Storage Only: The app stores your encrypted data locally on your device an
 License
 The Credentials Saver App is released under the MIT License, allowing you to use, modify, and distribute the software freely.
 
+Credits:
+https://github.com/vitafomin
+https://github.com/pg1219
+https://github.com/Dani-Gore13
+https://github.com/ArturoB10
 
 Repo: https://github.com/pg1219/project-3-password-manager
 
