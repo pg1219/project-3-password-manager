@@ -35,7 +35,7 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
-  color: teal;
+  color: rgb(5, 0, 0);
 }
 
 /* Grouping content
@@ -360,12 +360,14 @@ body {
 
 .heading {
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .sub-heading {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .password-list {
@@ -379,7 +381,7 @@ body {
   border-radius: 8px;
   padding: 20px;
   margin: 20px auto 60px; /* Add margin at the bottom to create spacing above the footer */
-  width: 120%;
+  width: 450px;
   height: 400px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -454,7 +456,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  color: teal;
+  color: rgb(0, 0, 0);
 }
 
 h3 {
@@ -527,20 +529,41 @@ ul.square {
   margin-top: 1rem;
 }
 
-.custom-button {
+.custom-button-2 {
   display: inline-block;
   padding: 0.5rem 1rem;
-  margin: 0.5rem;
+  margin-bottom: .5rem;
   border: none;
-  background-color: #1ba4a0;
+  background-color: #1b6da4;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
-  border-radius: 0.25rem;
+  border-radius: 50px;
   transition: background-color 0.2s;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 100%
+}
+.custom-button-3 {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-bottom: .5rem;
+  border: none;
+  background-color: #db0b0b;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background-color 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
+.custom-button-3:hover {
+  background-color: #cc7171;
+}
+.custom-button-2:hover {
+  background-color: #b5dddf;
+}
 .custom-button:hover {
   background-color: #1abfe9;
 }
@@ -720,7 +743,7 @@ footer p {
 
 .heading {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 
 .password-list {
@@ -730,8 +753,13 @@ footer p {
 }
 
 .sub-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  color: rgb(0, 0, 0);
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .password-card-list {
@@ -1382,7 +1410,8 @@ footer p {
 
 .card {
   border: 1px solid #1a1a1a;
-  margin-bottom: 1rem;
+  margin-bottom: rem;
+  border: black
 }
 
 .card .card-header {
