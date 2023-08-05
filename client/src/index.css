@@ -460,11 +460,11 @@ h2 {
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 h4 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 
 }
 
@@ -552,21 +552,15 @@ ul.square {
   padding: 0.5rem 1rem;
   margin-bottom: .5rem;
   border: none;
-
-  background-color: #8daaa9;
-
-
-
+  background-color: #1d3df7;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
   border-radius: 50px;
   transition: background-color 0.2s;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-
   width: 400px;
   text-align: center;
-
   width: 100%
 }
 .custom-button-3 {
@@ -574,7 +568,7 @@ ul.square {
   padding: 0.5rem 1rem;
   margin-bottom: .5rem;
   border: none;
-  background-color: #db0b0b;
+  background-color: #e62626;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
@@ -586,10 +580,10 @@ ul.square {
 }
 
 .custom-button-3:hover {
-  background-color: #cc7171;
+  background-color: #cc6363;
 }
 .custom-button-2:hover {
-  background-color: #b5dddf;
+  background-color: #81a8db;
 }
 .custom-button:hover {
   background-color: black;
