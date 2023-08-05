@@ -36,7 +36,7 @@ const Nav = () => {
                 Login
               </Link>
               <Link className="custom-button" to="/signup">
-                Signup
+                Sign Up
               </Link>
             </div>
           )}

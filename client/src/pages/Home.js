@@ -45,16 +45,16 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
     <div className="saved-passwords-container">
       {Auth.loggedIn() ? (
         <>
-          <div className="heading card">
-            <h1>Saved Credentials</h1>
+          <div className="heading-card">
+            <h1 className="head-font">Saved Credentials</h1>
           </div>
           <div className="password-list">
             <h2 className="sub-heading">
               {userData.savedPasswords?.length
                 ? `Viewing ${userData.savedPasswords.length} saved ${
                     userData.savedPasswords.length > 0
-                      ? "credentials"
-                      : "credentials"
+                      ? "credential(s)"
+                      : "credential(s)"
                   }`
                 : "You have not saved any credentials yet!"}
             </h2>
@@ -93,8 +93,8 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
       ) : (
 
         <p>
-          Please login to view your credentials <Link to="/login">login</Link>{" "}
-          or <Link to="/signup">signup</Link>
+          Please login to view your credentials <Link className="login-color" to="/login">login</Link>{" "}
+          or <Link className="login-color" to="/signup">signup</Link>
         </p>
       )}
     </div>
