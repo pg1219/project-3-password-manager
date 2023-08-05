@@ -35,7 +35,7 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
-  color: rgb(5, 0, 0);
+  color: teal;
 }
 
 /* Grouping content
@@ -134,12 +134,21 @@ sup {
   top: -0.5em;
 }
 
-
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
 img {
   border-style: none;
 }
 
-
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
 button,
 input,
 optgroup,
@@ -351,83 +360,8 @@ body {
   gap: 1rem; /* Add spacing between inputs */
 }
 
-.saved-passwords-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.heading {
-  text-align: center;
-}
-
-.sub-heading {
-  text-align: center;
-  margin-bottom: 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.password-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.password-entry {
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 20px auto 60px; /* Add margin at the bottom to create spacing above the footer */
-  width: 450px;
-  height: 400px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-
-.update-link {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.delete-button {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.update-button {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-}
-
-.update-button a {
-  color: white;
-  text-decoration: none;
+.custom-h4 {
+  margin-top: 1rem; /* Adjust the value to move the element higher */
 }
 
 
@@ -435,8 +369,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 19px;
-  color: #0f123f; /* Changed the text color to a dark shade for better readability */
+  font-size: 18px;
+  color: #c6deed; /* Changed the text color to a dark shade for better readability */
   background-color: #f0f0f0; /* Changed the background color to a light gray */
 }
 
@@ -446,7 +380,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 0 rem;
+  margin: 0 0 0.5rem;
   line-height: 1.25;
 }
 
@@ -456,15 +390,15 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  color: rgb(0, 0, 0);
+  color: teal;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.5rem; text-align: center;
 
 }
 
@@ -493,122 +427,6 @@ ul.square {
   list-style-type: square;
   font-size: 1.3rem;
 }
-/* Example custom CSS with gradient background */
-.custom-nav {
-  background-color: #ffffff;
-  color: #fff;
-  padding: 1rem;
-  
-}
-
-
-
-.custom-nav-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.custom-nav-logo {
-  font-size: 3rem;
-  margin: 0;
- 
-}
-
-.custom-nav-description {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin: 0;
-  margin-top: 0.5rem;
-}
-
-.custom-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-.custom-button {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  border: none;
-  background-color: #8daaa9;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: background-color 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  width: 400px;
-  text-align: center;
-}
-
-
-
-.custom-button-2 {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin-bottom: .5rem;
-  border: none;
-  background-color: #1d3df7;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: background-color 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  width: 400px;
-  text-align: center;
-  width: 100%
-}
-.custom-button-3 {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin-bottom: .5rem;
-  border: none;
-  background-color: #e62626;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: background-color 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  width: 100%;
-
-}
-
-.custom-button-3:hover {
-  background-color: #cc6363;
-}
-.custom-button-2:hover {
-  background-color: #81a8db;
-}
-.custom-button:hover {
-  background-color: black;
-}
-
-/* .custom-button.logout-button {
-  background-color: #f44336;
-}
-
-.custom-button.logout-button:hover {
-  background-color: #d32f2f;
-} */
-
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.align-center {
-  align-items: center;
- 
-  min-height: 50vh; /* This will vertically center the content */
-}
-
 
 label {
   display: inline-block;
@@ -732,120 +550,17 @@ a:hover {
   margin-top: 1rem;
 }
 
-
+.mt-4 {
+  margin-top: 1.375rem;
+}
 
 .mt-5 {
   margin-top: 1.625rem;
 }
 
-
-/* Footer styles */
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #223f88;
-  padding: 20px;
-  text-align: center;
+.mt-auto {
+  margin-top: auto;
 }
-
-/* Footer text styles */
-footer p {
-  margin: 0;
-}
-
-.saved-passwords-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
-
-.heading {
-  text-align: center;
-  margin-bottom: 0rem;
-}
-
-.password-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.sub-heading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: rgb(0, 0, 0);
-  margin-bottom: 1rem;
-  width: 100%;
-}
-
-.password-card-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.password-card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-}
-
-.password-card:hover {
-  transform: translateY(-3px);
-}
-
-.password-card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* .custom-button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-} */
-
-.custom-button:hover {
-  background-color: #5099dd;
-}
-
-.btn-block {
-  width: 100%;
-  display: block;
-  padding: 0.5rem 1rem;
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 0.25rem;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.btn-block:hover {
-  background-color: #c82333;
-}
-
-/* Additional styling as needed */
-
 
 /* Margin-right */
 .mr-0 {
@@ -1225,18 +940,7 @@ footer p {
 
 /* BACKGROUND UTILS */
 .bg-primary {
-
-  background-image: linear-gradient(white, black);
-
-
- 
-
-}
-.center-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* This will make the container take up the full viewport height */
+  background-color: #83b8f0 !important;
 }
 
 .bg-info {
@@ -1263,9 +967,9 @@ footer p {
   background-color: #000000 !important;
 }
 
-/* .bg-link {
+.bg-link {
   background-color: #1b89bc !important;
-} */
+}
 
 /* DISPLAY */
 .display-none {
@@ -1322,15 +1026,12 @@ footer p {
   padding: 0.8rem 1.4rem;
 }
 
-
-
-/* Button styles */
 .btn.btn-block {
-  width: 100%;
+  width: auto; /* Let the content determine the width */
   display: block;
   text-align: center;
-  padding: 0.5rem 3rem;
-  margin: auto; /* Center horizontally */
+  padding: 0.5rem 3rem; /* Adjust padding for better fit */
+  margin: 0;
   text-decoration: none;
   font-size: 1.2rem;
   border-radius: 0.5rem;
@@ -1339,15 +1040,8 @@ footer p {
   color: #1a1a1a;
   background-color: #aeaeae;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-
-  /* Move the button 2rem up from the bottom */
-  margin-bottom: 15rem;
 }
-
-
-
-
+/* Your existing styles */
 
 .flex-center {
   display: flex;
@@ -1386,7 +1080,7 @@ footer p {
 .btn.btn-light {
   background-color: #d9e9e8;
   color: #1a1a1a;
-  font-weight: 700;
+  
 }
 
 .btn.btn-light:hover {
@@ -1421,7 +1115,7 @@ footer p {
 }
 
 .btn.btn-link {
-  background-color: black;
+  background-color: #1b89bc;
   color: #ffffff;
 }
 
@@ -1431,8 +1125,7 @@ footer p {
 
 .card {
   border: 1px solid #1a1a1a;
-  margin-bottom: rem;
-  border: black
+  margin-bottom: 1rem;
 }
 
 .card .card-header {
@@ -1499,56 +1192,30 @@ form .form-label {
   margin: 0.625rem 0 0.25rem 0.3rem;
 }
 
-
-
-.center-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 65vh;
-}
-
-
-
-
-
 form .form-input {
   width: 100%;
   padding: 0.75rem;
   color: #1a1a1a;
   background-color: #ffffff;
-  margin: 0.625rem auto; /* Center horizontally and add margin */
+  margin: 0.625rem 0;
   font-size: 1.2rem;
   border: 1px solid #484848;
   border-radius: 0.3rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-form {
-  text-align: center;
 }
 
-/* Squared form input styles */
 form .form-input.form-input-squared {
   border-radius: 0;
 }
 
-/* Inline checkbox and radio styles */
 form [type='checkbox'],
 form [type='radio'] {
   display: inline-block;
 }
 
-/* Inline checkbox and radio styles within labels */
 label form [type='checkbox'],
 label form [type='radio'] {
   display: inline-block;
 }
-
-/* Center the form elements horizontally */
-form {
-  text-align: center;
-}
-
 
 .container {
   width: 85%;
