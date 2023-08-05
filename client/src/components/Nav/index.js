@@ -17,7 +17,6 @@ const Nav = () => {
         <Link className="custom-nav-link" to="/">
           <img className="custom-nav-logo" src={lockedInLogo} alt="LockedIn Logo" />
         </Link>
-        <p className="custom-nav-description">Never get locked out</p>
         <div className="custom-buttons">
           {Auth.loggedIn() ? (
             <div className="custom-logged-in-buttons">
