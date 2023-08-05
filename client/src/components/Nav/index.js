@@ -26,9 +26,9 @@ const Nav = () => {
               <Link className="custom-button" to="/create">
                 Save New Credentials
               </Link>
-              <button className="custom-button" onClick={logout}>
+              <a className="custom-button custom-btn" onClick={logout}>
                 Logout
-              </button>
+              </a>
             </div>
           ) : (
             <div className="custom-logged-out-buttons">
