@@ -134,21 +134,12 @@ sup {
   top: -0.5em;
 }
 
-/* Embedded content
-   ========================================================================== */
-/**
- * Remove the border on images inside links in IE 10.
- */
+
 img {
   border-style: none;
 }
 
-/* Forms
-   ========================================================================== */
-/**
- * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
- */
+
 button,
 input,
 optgroup,
@@ -387,9 +378,9 @@ body {
   background-color: #f5f5f5;
   border-radius: 8px;
   padding: 20px;
-  margin: auto; /* Center horizontally */
+  margin: 20px auto 60px; /* Add margin at the bottom to create spacing above the footer */
   width: 120%;
-  max-width: 800px;
+  height: 400px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -471,7 +462,7 @@ h3 {
 }
 
 h4 {
-  font-size: 2rem;
+  font-size: 1.75rem;
 
 }
 
@@ -505,7 +496,7 @@ ul.square {
   background-color: #223f88;
   color: #fff;
   padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  
 }
 
 
@@ -519,8 +510,7 @@ ul.square {
 .custom-nav-logo {
   font-size: 3rem;
   margin: 0;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+ 
 }
 
 .custom-nav-description {
@@ -703,6 +693,24 @@ a:hover {
 .mt-5 {
   margin-top: 1.625rem;
 }
+
+
+/* Footer styles */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #223f88;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Footer text styles */
+footer p {
+  margin: 0;
+}
+
 .saved-passwords-container {
   display: flex;
   flex-direction: column;
@@ -1265,13 +1273,15 @@ a:hover {
   padding: 0.8rem 1.4rem;
 }
 
-/* Adjusted CSS for the button */
+
+
+/* Button styles */
 .btn.btn-block {
-  width: 100%; /* Let the content determine the width */
+  width: 100%;
   display: block;
   text-align: center;
   padding: 0.5rem 3rem;
-  margin: 1rem auto 0; /* Add margin to separate the button from the inputs and center it */
+  margin: auto; /* Center horizontally */
   text-decoration: none;
   font-size: 1.2rem;
   border-radius: 0.5rem;
@@ -1280,12 +1290,13 @@ a:hover {
   color: #1a1a1a;
   background-color: #aeaeae;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add the box shadow */
-
+  /* Move the button 2rem up from the bottom */
+  margin-bottom: 15rem;
 }
+
+
 
 
 
@@ -1438,31 +1449,56 @@ form .form-label {
   margin: 0.625rem 0 0.25rem 0.3rem;
 }
 
+
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 65vh;
+}
+
+
+
+
+
 form .form-input {
   width: 100%;
   padding: 0.75rem;
   color: #1a1a1a;
   background-color: #ffffff;
-  margin: 0.625rem 0;
+  margin: 0.625rem auto; /* Center horizontally and add margin */
   font-size: 1.2rem;
   border: 1px solid #484848;
   border-radius: 0.3rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+form {
+  text-align: center;
+}
 
+/* Squared form input styles */
 form .form-input.form-input-squared {
   border-radius: 0;
 }
 
+/* Inline checkbox and radio styles */
 form [type='checkbox'],
 form [type='radio'] {
   display: inline-block;
 }
 
+/* Inline checkbox and radio styles within labels */
 label form [type='checkbox'],
 label form [type='radio'] {
   display: inline-block;
 }
+
+/* Center the form elements horizontally */
+form {
+  text-align: center;
+}
+
 
 .container {
   width: 85%;
