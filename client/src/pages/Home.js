@@ -45,8 +45,8 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
     <div className="saved-passwords-container">
       {Auth.loggedIn() ? (
         <>
-          <div className="heading">
-            <h1>Your Saved Credentials</h1>
+          <div className="heading card">
+            <h1>Saved Credentials</h1>
           </div>
           <div className="password-list">
             <h2 className="sub-heading">
@@ -70,17 +70,17 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                       <h4>Your Username: {password.savedUsername}</h4>
                       <h4>Your Password: {password.savedPassword}</h4>
                       <Link
-                        className="custom-button"
+                        className="custom-button-2"
                         to={`/update/${password.loginTo}`}
                       >
                         Update Credentials
                       </Link>
-                      <button
-                        className="btn-block btn-danger"
+                      <a
+                        className="custom-button-3"
                         onClick={() => handleDeletePassword(password.loginTo)}
                       >
                         Delete Credentials for {password.loginTo}
-                      </button>
+                      </a>
 
                     </main>
                   </div>
