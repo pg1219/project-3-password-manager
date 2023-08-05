@@ -749,12 +749,15 @@ a:hover {
 
 /* Footer styles */
 footer {
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   left: 0;
   width: 100%;
-  color:rgba(232, 221, 221, 0.88);
+  height: 100%;
+  color:rgba(138, 136, 136, 0.88);
   padding: 20px;
+  text-align: center;
+  background-color: black;
   text-align: center;
 }
 
