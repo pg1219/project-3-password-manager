@@ -51,7 +51,7 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
           <div className="password-list">
             <h2 className="sub-heading">
               {userData.savedPasswords?.length
-                ? `Viewing ${userData.savedPasswords.length} saved ${
+                ? `You have ${userData.savedPasswords.length} saved ${
                     userData.savedPasswords.length > 0
                       ? "credential(s)"
                       : "credential(s)"
@@ -64,11 +64,11 @@ const SavedPasswords = ({ passwords, isLoggedInUser = false }) => {
                   <div className="password-entry">
                     <main>
                       <h3>
-                        Credentials for {password.loginTo}
+                        CREDENTIALS FOR {password.loginTo}
 
                       </h3>
-                      <h4>Your Username: {password.savedUsername}</h4>
-                      <h4>Your Password: {password.savedPassword}</h4>
+                      <h4>YOUR USERNAME: {password.savedUsername}</h4>
+                      <h4>YOUR PASSWORD: {password.savedPassword}</h4>
                       <Link
                         className="custom-button-2"
                         to={`/update/${password.loginTo}`}
