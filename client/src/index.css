@@ -379,7 +379,7 @@ body {
 .password-entry {
   background-color: #f5f5f5;
   border-radius: 8px;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   margin: 20px auto 60px; /* Add margin at the bottom to create spacing above the footer */
   width: 450px;
   height: 400px;
@@ -462,11 +462,11 @@ h2 {
 h3 {
   font-size: 2rem;
   text-decoration: underline;
+  margin: 20px 0px 10px 0px;
 }
 
 h4 {
-  font-size: 1.5rem;
-
+  font-size: 1.25rem;
 }
 
 h5 {
